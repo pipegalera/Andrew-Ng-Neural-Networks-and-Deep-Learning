@@ -17,7 +17,7 @@ A larger neural network is formated by taking many of the single neurons and sta
 To feed the network, you need to give it just the input x and the output y for a number of examples in your training set and the neural network will figure it out by itself the hidden layer in the middle. The input layer and the hidden layer are density connected: every input feature is connected to every "hidden" feature.
 
 <p align="center">
-<img src="images/nn3.png">
+<img src="images/nn3.png" width="60%" height="60%">
 </p>
 
 # Supervised Learning with Neural Networks
@@ -34,6 +34,17 @@ Structured data refers to things that has a defined meaning such as price, age w
 
 In a binary classification problem, the result is a discrete value output.
 
-The feature matrix shape is made "stacking" the number of features($n_x$) in different columns, one for every observation ($m$): $X.shape = (n_x, m)$. The output shape is a 1 by $m$ dimensional matrix $y.shape = (1,m)$
+The feature matrix shape is made "stacking" the number of features($n_x$) in different columns, one for every observation ($m$): $X.shape = (n_x, m)$. The output shape is a 1 by $m$ dimensional matrix; $y.shape = (1,m)$
 
-Logistic regression is used for binary classification, when the output labels are either 0 or 1: $\hat{y} = P(y=1|x), where 0 ≤ \hat{y} ≤ 1$
+Logistic regression is used for binary classification, when the output labels are either 0 or 1: $\hat{y} = P(y=1|x)$, where $0 <= \hat{y} <= 1$.
+
+The parameters used in Logistic regression are:
+
+* The input features vector: $x\in{R^{n_{x}}}$, where $n_{x}$ is the number of features
+* The training label: $y\in0,1$
+* The weights: $w\in{R^{n_{x}}}$
+* The threshold: $b\inR$
+* The output: $\hat{y}= \sigma(w^{T}x + b)$
+* The Sigmoid function: $\sigma(z)=\frac{1}{1+e^{-z}}$
+
+# Logistic Regression Cost Function
