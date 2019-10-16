@@ -36,7 +36,7 @@ In a binary classification problem, the result is a discrete value output.
 
 The feature matrix shape is made "stacking" the number of features($n_x$) in different columns, one for every observation ($m$): $X.shape = (n_x, m)$. The output shape is a 1 by $m$ dimensional matrix; $y.shape = (1,m)$
 
-Logistic regression is used for binary classification, when the output labels are either 0 or 1: $\hat{y} = P(y=1|x)$, where $0 <= \hat{y} <= 1$.
+Logistic regression is used for binary classification, when the output labels are either 0 or 1: $\hat{y} = P(y=1|x)$, where $0 \leq \hat{y} \leq 1$.
 
 The parameters used in Logistic regression are:
 
@@ -45,6 +45,29 @@ The parameters used in Logistic regression are:
 * The weights: $w\in{R^{n_{x}}}$
 * The threshold: $b\inR$
 * The output: $\hat{y}= \sigma(w^{T}x + b)$
-* The Sigmoid function: $\sigma(z)=\frac{1}{1+e^{-z}}$
+* The Sigmoid function: $\sigma(z)=\frac{1}{1+e^{-z}}$ where $z=w^{T}x + b$
 
-# Logistic Regression Cost Function
+# Logistic Regression Loss and Cost Function
+
+The loss function measures the discrepancy between the prediction ($\hat(y)$ and the desired output ($y$). In other words, the loss function computes the error for a single training example.
+
+The cost function is the average of the loss function of the entire training set. We are going to find the parameters $w$ and $b$ that minimize the overall cost function.
+
+The loss function computes the error for a single training example; the cost function is the average of the loss functions of the entire training set.
+
+\begin{align*}
+    J(w,b)=\frac{1}{m}\sum\limits_{i=1}^{m}L(\hat{y}^(i), y^(i))=-\frac{1}{m}\sum\limits_{i=1}^{m}(y^(i)log\hat{y}^(i)+(1-y^(i))log(1-y^(i))
+\end{align*}
+
+# Logistic Regression Gradient Descent
+
+The gradient descent algorithm is:
+
+\begin{align*}
+  w := w - \alpha\frac{dJ(w,b)}{dw}
+  b := b - \alpha\frac{dJ(w,b)}{db}
+\end{align*}
+
+where:
+
+$w$ and $b$ represents the weights and the threshold, $:=$ is the assigment ("update") math symbol and $\alpha$ is the learning rate.
