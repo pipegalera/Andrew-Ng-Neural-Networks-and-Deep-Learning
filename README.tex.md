@@ -59,13 +59,14 @@ The loss function computes the error for a single training example; the cost fun
     J(w,b)=\frac{1}{m}\sum\limits_{i=1}^{m}L(\hat{y}^{(i)}, y^{(i)})=-\frac{1}{m}\sum\limits_{i=1}^{m}(y^{(i)}log\hat{y}^{(i)}+(1-y^{(i)})log(1-y^{(i)})
 \end{align*}
 
-# Logistic Regression Gradient Descent
+# Logistic Regression Gradient Descent
 
 The gradient descent algorithm is:
 
 \begin{align*}
   w := w - \alpha\frac{dJ(w,b)}{dw}
 \end{align*}
+
 \begin{align*}
   b := b - \alpha\frac{dJ(w,b)}{db}
 \end{align*}
@@ -73,3 +74,5 @@ The gradient descent algorithm is:
 where: $w$ and $b$ represents the weights and the threshold, $:=$ is the assigment ("update") math symbol and $\alpha$ is the learning rate.
 
 # Vectorization
+
+Avoid explicit for-loops whenever possible: $z = w^{T}X + b$ in Numpy ($z = np.dot(w, x) + b$  is about 300 times faster than the explicit for loop.
