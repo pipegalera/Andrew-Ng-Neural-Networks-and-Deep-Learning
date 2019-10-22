@@ -49,20 +49,21 @@ The parameters used in Logistic regression are:
 
 # Logistic Regression Loss and Cost Function
 
-The loss function measures the discrepancy between the prediction (<img src="/tex/a7d6723ffa9250d5cf6af8dbdc3a9aac.svg?invert_in_darkmode&sanitize=true" align=middle width=22.347882149999997pt height=33.333385800000016pt/> and the desired output (<img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/>). In other words, the loss function computes the error for a single training example.
+The loss function measures the discrepancy between the prediction (<img src="/tex/a7d6723ffa9250d5cf6af8dbdc3a9aac.svg?invert_in_darkmode&sanitize=true" align=middle width=22.347882149999997pt height=33.333385800000016pt/>) and the desired output (<img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/>). In other words, the loss function computes the error for a single training example.
 
 The cost function is the average of the loss function of the entire training set. We are going to find the parameters <img src="/tex/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode&sanitize=true" align=middle width=12.210846449999991pt height=14.15524440000002pt/> and <img src="/tex/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode&sanitize=true" align=middle width=7.054796099999991pt height=22.831056599999986pt/> that minimize the overall cost function.
 
 The loss function computes the error for a single training example; the cost function is the average of the loss functions of the entire training set.
 
-<p align="center"><img src="/tex/713ce12b2337b9777b0a79fb97103540.svg?invert_in_darkmode&sanitize=true" align=middle width=542.3303523pt height=44.89738935pt/></p>
+<p align="center"><img src="/tex/1d5aedc0424ce62be80e02c229078aab.svg?invert_in_darkmode&sanitize=true" align=middle width=528.7220350499999pt height=44.89738935pt/></p>
 
 # Logistic Regression Gradient Descent
 
 The gradient descent algorithm is:
 
-<p align="center"><img src="/tex/552e29fe30559eb3f1297d52deb52210.svg?invert_in_darkmode&sanitize=true" align=middle width=275.97063944999996pt height=34.7253258pt/></p>
+<p align="center"><img src="/tex/43f87f495e438d7c33b25b70a709382d.svg?invert_in_darkmode&sanitize=true" align=middle width=142.1551065pt height=34.7253258pt/></p>
+<p align="center"><img src="/tex/e296d438b605ffd614b2be1f3617f1f1.svg?invert_in_darkmode&sanitize=true" align=middle width=131.84300745pt height=34.7253258pt/></p>
 
-where:
+where: <img src="/tex/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode&sanitize=true" align=middle width=12.210846449999991pt height=14.15524440000002pt/> and <img src="/tex/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode&sanitize=true" align=middle width=7.054796099999991pt height=22.831056599999986pt/> represents the weights and the threshold, <img src="/tex/5fc6094a9c29537af5f99e0fceb76364.svg?invert_in_darkmode&sanitize=true" align=middle width=17.35165739999999pt height=14.15524440000002pt/> is the assigment ("update") math symbol and <img src="/tex/c745b9b57c145ec5577b82542b2df546.svg?invert_in_darkmode&sanitize=true" align=middle width=10.57650494999999pt height=14.15524440000002pt/> is the learning rate.
 
-<img src="/tex/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode&sanitize=true" align=middle width=12.210846449999991pt height=14.15524440000002pt/> and <img src="/tex/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode&sanitize=true" align=middle width=7.054796099999991pt height=22.831056599999986pt/> represents the weights and the threshold, <img src="/tex/5fc6094a9c29537af5f99e0fceb76364.svg?invert_in_darkmode&sanitize=true" align=middle width=17.35165739999999pt height=14.15524440000002pt/> is the assigment ("update") math symbol and <img src="/tex/c745b9b57c145ec5577b82542b2df546.svg?invert_in_darkmode&sanitize=true" align=middle width=10.57650494999999pt height=14.15524440000002pt/> is the learning rate.
+# Vectorization
