@@ -71,13 +71,14 @@ The gradient descent algorithm is:
   b := b - \alpha\frac{dJ(w,b)}{db}
 \end{align*}
 
-where: $w$ and $b$ represents the weights and the threshold, $:=$ is the assigment ("update") math symbol and $\alpha$ is the learning rate.
+where: $w$ and $b$ represents the weights and the threshold, $:=$ is the assignment ("update") math symbol and $\alpha$ is the learning rate.
+
 
 # Vectorization and Broadcasting in Python
 
-Avoid explicit for-loops whenever possible: $z = w^{T}X + b$ in Numpy ($z = np.dot(w, x) + b$  is about 300 times faster than the explicit for loop.
+Avoid explicit for-loops whenever possible. Using  the numpy version ()"$z = np.dot(w, x) + b$") of "$z = w^{T}X + b$" is about 300 times faster than an explicit for loop.
 
-When we use the numpy version, python automatically transform the constant (or 1x1 matrix) $b$ and expand to a $1xm$ matrix to sum the matrices: $b = [b_1, b_2, b_3...b_n]$. This is called "broadcasting", it also faster way to compute the code.
+When we use the numpy version, python automatically transform the constant (or 1x1 matrix) "b" and expand to a "1xm" matrix to sum the matrices: $b = [b_1, b_2, b_3...b_n]$. This is called "broadcasting", its also faster way to compute the code.
 
 - Example: Calculating the percentage of calories from carb/protein/fat for each food — without fooloop from the following table
 
@@ -99,17 +100,11 @@ print(cal)
 percentage = 100*A/cal.reshape(1,4) #Taking the 3x4 matrix "A" and diving it by the 1x4 matrix "cal".
 print(percentage)
 ```
-Resulting:
+Resulting in a 3x4 matrix.
 
-[[94.91525424  0.          2.83140283 88.42652796]
- [ 2.03389831 43.51464435 33.46203346 10.40312094]
- [ 3.05084746 56.48535565 63.70656371  1.17035111]]
+- Python broadcast (or "force") matrices to make the operation match.
 
-The 94.92 % of the Apple is Carbs, the 2% is Protein and so on...
-
-Python will broadcast (or "force") matrices to make the operation match.
-
-- General Principle: When you sum, subtract, divide or multiply (m,n) matrix with a (1,n), matrix the (1,n) matrix will be expanded to a (m,n) matrix by copying the row m times, to match the shape.
+As a "General Principle": When you sum, subtract, divide or multiply (m,n) matrix with a (1,n), matrix the (1,n) matrix will be expanded to a (m,n) matrix by copying the row m times, to match the shape.
 
 For example, a 4x1 matrix plus a number would treat the number as a 4x1 matrix with each row the number. A 2x3 matrix plus a 1x3 matrix would treat the last as a 2x3 matrix creating a row with the same numbers and so forth.
 
@@ -130,4 +125,4 @@ f = d*e # Error: operands could not be broadcast together
 
 ```
 
-This allows to write quite a flexible code, but it also allows to start creating product matrices that create bugs difficult to track. Specify always the matrix shape and don't use rank 1 matrices: $np.random.randn(5,1)$ instead of $np.random.randn(5)$ for a five column vector for example.
+This allows to write quite a flexible code, but it also allows to start creating product matrices that create bugs difficult to track. Specify always the matrix shape and don't use rank 1 matrices: "np.random.randn(5,1)" instead of "np.random.randn(5)" for a five column vector, for example.
