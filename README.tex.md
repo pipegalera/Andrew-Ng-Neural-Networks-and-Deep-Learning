@@ -73,6 +73,7 @@ The gradient descent algorithm is:
 
 where: $w$ and $b$ represents the weights and the threshold, $:=$ is the assignment ("update") math symbol and $\alpha$ is the learning rate.
 
+# Logistic Regression Gradient Descent
 
 # Vectorization and Broadcasting in Python
 
