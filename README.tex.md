@@ -125,3 +125,27 @@ f = d*e # Error: operands could not be broadcast together
 ```
 
 This allows to write quite a flexible code, but it also allows to start creating product matrices that create bugs difficult to track. Specify always the matrix shape and don't use rank 1 matrices: "np.random.randn(5,1)" instead of "np.random.randn(5)" for a five column vector, for example.
+
+# Shallow Neural Network
+
+<p align="center">
+<img src="images/leyers.png" width="60%" height="60%">
+</p>
+
+What a Neural Network does is doing the logistic regresion for each neuron. This logistic regression has 2 steps of computation: it's own regression $z= w^{T}+b$ and an activation function $a = \sigma(z)$
+
+<p align="center">
+<img src="images/activation.png" width="60%" height="60%">
+</p>
+
+So for each neuron $i$ or node in the layer you have: $z_i^{[n]}= w_i^{[n]T}+b_i^{[n]}$ and $a_i^{n} = \sigma(z_i^{n})$ where n is the layer number:
+
+<p align="center">
+<img src="images/formula.png" width="60%" height="60%">
+</p>
+
+In this Neural Network example with 2 layers and 4 logistic regression, we can stack the vectors together of the entire layers to make:
+
+- $W^{[1]}$ as a vector (4x3) of $[W_1^{[1]}, W_2^{[1]},W_3^{[1]},W_4^{[1]}]$;
+- $b^{[1]}$ as a vector (4x1) of $[b_1^{[1]}, b_2^{[1]},b_3^{[1]},b_4^{[1]}]$;
+- $a^{[1]}$ as a vector (4x1) of $[a_1^{[1]}, a_2^{[1]},a_3^{[1]},a_4^{[1]}] = \sigma(z^{[1]})$
