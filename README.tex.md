@@ -49,9 +49,9 @@ The parameters used in Logistic regression are:
 
 # Logistic Regression Loss and Cost Function
 
-The loss function measures the discrepancy between the prediction ($\hat(y)$) and the desired output ($y$). In other words, the loss function computes the error for a single training example.
+The **Loss function** measures the discrepancy between the prediction ($\haty$) and the desired output ($y$). In other words, the loss function computes the error for a single training example.
 
-The cost function is the average of the loss function of the entire training set. We are going to find the parameters $w$ and $b$ that minimize the overall cost function.
+The **Cost function** is the average of the loss function of the entire training set. We are going to find the parameters $w$ and $b$ that minimize the overall cost function.
 
 The loss function computes the error for a single training example; the cost function is the average of the loss functions of the entire training set.
 
@@ -70,6 +70,8 @@ The gradient descent algorithm is:
 \begin{align*}
   b := b - \alpha\frac{dJ(w,b)}{db}
 \end{align*}
+
+# Logistic Regression Gradient Descent
 
 where: $w$ and $b$ represents the weights and the threshold, $:=$ is the assignment ("update") math symbol and $\alpha$ is the learning rate.
 
