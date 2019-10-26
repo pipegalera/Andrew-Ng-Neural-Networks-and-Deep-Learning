@@ -71,16 +71,9 @@ The gradient descent algorithm is:
   b := b - \alpha\frac{dJ(w,b)}{db}
 \end{align*}
 
-# Logistic Regression Gradient Descent
-
 where: $w$ and $b$ represents the weights and the threshold, $:=$ is the assignment ("update") math symbol and $\alpha$ is the learning rate.
 
-# Logistic Regression Gradient Descent
-# Logistic Regression Gradient Descent
-# Logistic Regression Gradient Descent
-# Logistic Regression Gradient Descent
-
-# Vectorization and Broadcasting in Python
+# Vectorization and Broadcasting in Python
 
 Avoid explicit for-loops whenever possible. Using  the numpy version ()"$z = np.dot(w, x) + b$") of "$z = w^{T}X + b$" is about 300 times faster than an explicit for loop.
 
