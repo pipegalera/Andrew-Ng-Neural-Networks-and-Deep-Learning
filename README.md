@@ -138,7 +138,7 @@ So for each neuron <img src="/tex/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in
 <img src="images/formula.png" width="70%" height="70%">
 </p>
 
-In this Neural Network example with 2 layers and 4 logistic regression, we can stack the vectors together of the entire layers to make:
+In this Neural Network example with 2 layers and 4 logistic regression, we can stack the vectors together of the entire layers to make a vectorized implementation:
 
 - <img src="/tex/e99a4e1d357aa81fae3ff5e34777a7d3.svg?invert_in_darkmode&sanitize=true" align=middle width=31.80377474999999pt height=29.190975000000005pt/> as a vector (4x3) of <img src="/tex/a7f37b9c641adf6695dd9f803fb4961e.svg?invert_in_darkmode&sanitize=true" align=middle width=161.55281339999996pt height=34.337843099999986pt/>;
 - <img src="/tex/39c7d8201e2cadb69c40aa59b2b65d48.svg?invert_in_darkmode&sanitize=true" align=middle width=21.05031389999999pt height=29.190975000000005pt/> as a vector (4x1) of <img src="/tex/ea0a6219d3589a549b215cdb2d5c9801.svg?invert_in_darkmode&sanitize=true" align=middle width=118.53896834999999pt height=34.337843099999986pt/>;
