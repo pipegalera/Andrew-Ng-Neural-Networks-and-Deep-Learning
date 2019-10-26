@@ -141,11 +141,12 @@ What a Neural Network does is doing the logistic regresion for each neuron. This
 So for each neuron $i$ or node in the layer you have: $z_i^{[n]}= w_i^{[n]T}+b_i^{[n]}$ and $a_i^{n} = \sigma(z_i^{n})$ where n is the layer number:
 
 <p align="center">
-<img src="images/formula.png" width="60%" height="60%">
+<img src="images/formula.png" width="70%" height="70%">
 </p>
 
 In this Neural Network example with 2 layers and 4 logistic regression, we can stack the vectors together of the entire layers to make:
 
 - $W^{[1]}$ as a vector (4x3) of $[W_1^{[1]}, W_2^{[1]},W_3^{[1]},W_4^{[1]}]$;
 - $b^{[1]}$ as a vector (4x1) of $[b_1^{[1]}, b_2^{[1]},b_3^{[1]},b_4^{[1]}]$;
-- $a^{[1]}$ as a vector (4x1) of $[a_1^{[1]}, a_2^{[1]},a_3^{[1]},a_4^{[1]}] = \sigma(z^{[1]})$
+- $Z^{[1]}$ as the vector dot product of $W^{[1]}x + b^{[1]}$;
+- $A^{[1]}$ as a vector (4x1) of $[a_1^{[1]}, a_2^{[1]},a_3^{[1]},a_4^{[1]}] = \sigma(z^{[1]})$.
