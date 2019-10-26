@@ -135,11 +135,12 @@ What a Neural Network does is doing the logistic regresion for each neuron. This
 So for each neuron <img src="/tex/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode&sanitize=true" align=middle width=5.663225699999989pt height=21.68300969999999pt/> or node in the layer you have: <img src="/tex/31755903d960cb832e6310355ea7a1dd.svg?invert_in_darkmode&sanitize=true" align=middle width=127.52654969999998pt height=34.337843099999986pt/> and <img src="/tex/36da5c31f64ac5ba1ab6dbab12055de5.svg?invert_in_darkmode&sanitize=true" align=middle width=79.63859475pt height=24.65753399999998pt/> where n is the layer number:
 
 <p align="center">
-<img src="images/formula.png" width="60%" height="60%">
+<img src="images/formula.png" width="70%" height="70%">
 </p>
 
 In this Neural Network example with 2 layers and 4 logistic regression, we can stack the vectors together of the entire layers to make:
 
 - <img src="/tex/e99a4e1d357aa81fae3ff5e34777a7d3.svg?invert_in_darkmode&sanitize=true" align=middle width=31.80377474999999pt height=29.190975000000005pt/> as a vector (4x3) of <img src="/tex/a7f37b9c641adf6695dd9f803fb4961e.svg?invert_in_darkmode&sanitize=true" align=middle width=161.55281339999996pt height=34.337843099999986pt/>;
 - <img src="/tex/39c7d8201e2cadb69c40aa59b2b65d48.svg?invert_in_darkmode&sanitize=true" align=middle width=21.05031389999999pt height=29.190975000000005pt/> as a vector (4x1) of <img src="/tex/ea0a6219d3589a549b215cdb2d5c9801.svg?invert_in_darkmode&sanitize=true" align=middle width=118.53896834999999pt height=34.337843099999986pt/>;
-- <img src="/tex/f4618219d74df976852f2fc1ec71831e.svg?invert_in_darkmode&sanitize=true" align=middle width=22.684671899999987pt height=29.190975000000005pt/> as a vector (4x1) of <img src="/tex/9adad71e414b40cbbeba1ae7ee4b70ea.svg?invert_in_darkmode&sanitize=true" align=middle width=192.94738485pt height=34.337843099999986pt/>
+- <img src="/tex/f4fca034d9054d2cee867c6dfd0d21d5.svg?invert_in_darkmode&sanitize=true" align=middle width=26.392786199999986pt height=29.190975000000005pt/> as the vector dot product of <img src="/tex/717159c72c244b22ef8030a0a19390f4.svg?invert_in_darkmode&sanitize=true" align=middle width=83.16217304999998pt height=29.190975000000005pt/>;
+- <img src="/tex/b9feec4b9dbf507e05a4da3aee588d61.svg?invert_in_darkmode&sanitize=true" align=middle width=26.324316149999987pt height=29.190975000000005pt/> as a vector (4x1) of <img src="/tex/9adad71e414b40cbbeba1ae7ee4b70ea.svg?invert_in_darkmode&sanitize=true" align=middle width=192.94738485pt height=34.337843099999986pt/>.
