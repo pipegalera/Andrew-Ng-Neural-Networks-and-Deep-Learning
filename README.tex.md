@@ -126,13 +126,13 @@ f = d*e # Error: operands could not be broadcast together
 
 This allows to write quite a flexible code, but it also allows to start creating product matrices that create bugs difficult to track. Specify always the matrix shape and don't use rank 1 matrices: "np.random.randn(5,1)" instead of "np.random.randn(5)" for a five column vector, for example.
 
-# Shallow Neural Network
+# Neural Networks Overview and Vectorized Implementation
 
 <p align="center">
 <img src="images/leyers.png" width="60%" height="60%">
 </p>
 
-What a Neural Network does is doing the logistic regresion for each neuron. This logistic regression has 2 steps of computation: it's own regression $z= w^{T}+b$ and an activation function $a = \sigma(z)$
+What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has 2 steps of computation: it's own regression $z= w^{T}+b$ and an activation function $a = \sigma(z)$
 
 <p align="center">
 <img src="images/activation.png" width="60%" height="60%">
@@ -150,3 +150,27 @@ In this Neural Network example with 2 layers and 4 logistic regression, we can s
 - $b^{[1]}$ as a vector (4x1) of $[b_1^{[1]}, b_2^{[1]},b_3^{[1]},b_4^{[1]}]$;
 - $Z^{[1]}$ as the vector dot product of $W^{[1]}x + b^{[1]}$;
 - $A^{[1]}$ as a vector (4x1) of $[a_1^{[1]}, a_2^{[1]},a_3^{[1]},a_4^{[1]}] = \sigma(z^{[1]})$.
+
+# Activation functions
+
+When you build your neural network, one of the choices you get to make is what activation function to use in the hidden layers.
+
+The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called hyperbolic tangent function (Tanh):
+
+<p align="center">
+<img src="images/tangent.png" width="70%" height="70%">
+</p>
+
+It goes between 1 and - 1. The tanh function is almost always strictly superior. The one exception is for the output layer because if y is either 0 or 1, then it makes sense for y hat to be a number, the one to output that's between 0 and 1 rather than between minus 1 and 1.
+
+One of the downsides of both the sigmoid function and the tanh function is that if z is either very large or very small, then the gradient or the derivative or the slope of this function becomes very small.
+
+Another choice that is very popular in machine learning is what's called the rectify linear unit (ReLU). So the value function looks like:
+
+<p align="center">
+<img src="images/relu.png" width="70%" height="70%">
+</p>
+
+The derivative is 1 as z is positive. And the derivative or  slope is 0, when z is negative. Is an increasingly default choice of activation function.
+
+In practice, using the ReLU activation function, your neural network will often learn much faster than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
