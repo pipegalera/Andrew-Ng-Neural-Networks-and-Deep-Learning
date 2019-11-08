@@ -174,3 +174,30 @@ Another choice that is very popular in machine learning is what's called the rec
 The derivative is 1 as z is positive. And the derivative or  slope is 0, when z is negative. Is an increasingly default choice of activation function.
 
 In practice, using the ReLU activation function, your neural network will often learn much faster than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
+
+If you use a linear activation function, or alternatively if you don't have an activation function, then no matter how many layers your neural network has, all it's doing is just computing a linear activation function. A linear hidden layer is more or less useless because the composition of two linear functions is itself a linear function.
+
+# Derivatives of activation functions
+
+* Sigmond Function: $g'(z) = g(z) * (1 - g(z)) = a * (1-a)$
+* Tanh Function: $g'(z) = 1 - (tanh(z))^2 = 1 - a^2$
+
+Where $a = g()$ is a nonlinear function.
+
+* ReLU Function: $g'(z) = 0 when z<0$ and $g'(z) = 1 when z>=0$
+* Leaky ReLU Function: $g'(z) = 0.01 when z<0$
+and $g'(z) = 1 when z>=0$
+
+# Gradient descent for Neural Networks
+
+The gradient is a numeric calculation allowing us to know how to adjust the parameters (weights, bias) of a network in such a way that its output deviation (cost function) is minimized:
+
+$J(w^{[1]},b^{[1]},w^{[2]},b^{[2]}) = \fraq{1/m} * \sum(L(\haty, y))$
+
+# Random Initialization
+
+When you change your neural network, it's important to initialize the weights randomly. Random initialization of the model is a common practice. The rational behind is that from wherever we start, if we are perseverant enough and through an iterative learning process, we can reach the pseudo-ideal model.
+
+We can initialize the weights randomly and the bias at zero.
+
+If we initialize both weights and bias to zeros, all activations functions (a_{i,j,...}) will be equal. All the neurons units would start off computing the same function and therefore all the hidden neurons completely identical. Again, using hidden layers would be useless.
