@@ -120,13 +120,13 @@ f = d*e # Error: operands could not be broadcast together
 
 This allows to write quite a flexible code, but it also allows to start creating product matrices that create bugs difficult to track. Specify always the matrix shape and don't use rank 1 matrices: "np.random.randn(5,1)" instead of "np.random.randn(5)" for a five column vector, for example.
 
-# Shallow Neural Network
+# Neural Networks Overview and Vectorized Implementation
 
 <p align="center">
 <img src="images/leyers.png" width="60%" height="60%">
 </p>
 
-What a Neural Network does is doing the logistic regresion for each neuron. This logistic regression has 2 steps of computation: it's own regression <img src="/tex/284725ac5e6b6f357803a43ef12682ee.svg?invert_in_darkmode&sanitize=true" align=middle width=79.99767599999998pt height=27.6567522pt/> and an activation function <img src="/tex/05c003d60a6e5e2b03dc6e29ddbcf5a8.svg?invert_in_darkmode&sanitize=true" align=middle width=61.74271949999999pt height=24.65753399999998pt/>
+What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has 2 steps of computation: it's own regression <img src="/tex/284725ac5e6b6f357803a43ef12682ee.svg?invert_in_darkmode&sanitize=true" align=middle width=79.99767599999998pt height=27.6567522pt/> and an activation function <img src="/tex/05c003d60a6e5e2b03dc6e29ddbcf5a8.svg?invert_in_darkmode&sanitize=true" align=middle width=61.74271949999999pt height=24.65753399999998pt/>
 
 <p align="center">
 <img src="images/activation.png" width="60%" height="60%">
@@ -144,3 +144,27 @@ In this Neural Network example with 2 layers and 4 logistic regression, we can s
 - <img src="/tex/39c7d8201e2cadb69c40aa59b2b65d48.svg?invert_in_darkmode&sanitize=true" align=middle width=21.05031389999999pt height=29.190975000000005pt/> as a vector (4x1) of <img src="/tex/ea0a6219d3589a549b215cdb2d5c9801.svg?invert_in_darkmode&sanitize=true" align=middle width=118.53896834999999pt height=34.337843099999986pt/>;
 - <img src="/tex/f4fca034d9054d2cee867c6dfd0d21d5.svg?invert_in_darkmode&sanitize=true" align=middle width=26.392786199999986pt height=29.190975000000005pt/> as the vector dot product of <img src="/tex/717159c72c244b22ef8030a0a19390f4.svg?invert_in_darkmode&sanitize=true" align=middle width=83.16217304999998pt height=29.190975000000005pt/>;
 - <img src="/tex/b9feec4b9dbf507e05a4da3aee588d61.svg?invert_in_darkmode&sanitize=true" align=middle width=26.324316149999987pt height=29.190975000000005pt/> as a vector (4x1) of <img src="/tex/9adad71e414b40cbbeba1ae7ee4b70ea.svg?invert_in_darkmode&sanitize=true" align=middle width=192.94738485pt height=34.337843099999986pt/>.
+
+# Activation functions
+
+When you build your neural network, one of the choices you get to make is what activation function to use in the hidden layers.
+
+The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called hyperbolic tangent function (Tanh):
+
+<p align="center">
+<img src="images/tangent.png" width="70%" height="70%">
+</p>
+
+It goes between 1 and - 1. The tanh function is almost always strictly superior. The one exception is for the output layer because if y is either 0 or 1, then it makes sense for y hat to be a number, the one to output that's between 0 and 1 rather than between minus 1 and 1.
+
+One of the downsides of both the sigmoid function and the tanh function is that if z is either very large or very small, then the gradient or the derivative or the slope of this function becomes very small.
+
+Another choice that is very popular in machine learning is what's called the rectify linear unit (ReLU). So the value function looks like:
+
+<p align="center">
+<img src="images/relu.png" width="70%" height="70%">
+</p>
+
+The derivative is 1 as z is positive. And the derivative or  slope is 0, when z is negative. Is an increasingly default choice of activation function.
+
+In practice, using the ReLU activation function, your neural network will often learn much faster than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
