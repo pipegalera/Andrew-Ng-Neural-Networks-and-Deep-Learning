@@ -168,3 +168,30 @@ Another choice that is very popular in machine learning is what's called the rec
 The derivative is 1 as z is positive. And the derivative or  slope is 0, when z is negative. Is an increasingly default choice of activation function.
 
 In practice, using the ReLU activation function, your neural network will often learn much faster than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
+
+If you use a linear activation function, or alternatively if you don't have an activation function, then no matter how many layers your neural network has, all it's doing is just computing a linear activation function. A linear hidden layer is more or less useless because the composition of two linear functions is itself a linear function.
+
+# Derivatives of activation functions
+
+* Sigmond Function: <img src="/tex/f77e969353c9a7729e03b69c6c14b698.svg?invert_in_darkmode&sanitize=true" align=middle width=267.81727664999994pt height=24.7161288pt/>
+* Tanh Function: <img src="/tex/93d9f210c58d318efad18058bbe48d5f.svg?invert_in_darkmode&sanitize=true" align=middle width=225.1692366pt height=26.76175259999998pt/>
+
+Where <img src="/tex/53ee452a5c1c62644cbbda5f322a11cc.svg?invert_in_darkmode&sanitize=true" align=middle width=51.822576299999994pt height=24.65753399999998pt/> is a nonlinear function.
+
+* ReLU Function: <img src="/tex/34723e8bb818e0f73e261ceafe24b692.svg?invert_in_darkmode&sanitize=true" align=middle width=142.03955865pt height=24.7161288pt/> and <img src="/tex/92270b0c287e23e140cb3b8308e4739d.svg?invert_in_darkmode&sanitize=true" align=middle width=154.82499284999997pt height=24.7161288pt/>
+* Leaky ReLU Function: <img src="/tex/804ca2aa9f8ea1c6b2cae0a66e106bd2.svg?invert_in_darkmode&sanitize=true" align=middle width=163.0442022pt height=24.7161288pt/>
+and <img src="/tex/92270b0c287e23e140cb3b8308e4739d.svg?invert_in_darkmode&sanitize=true" align=middle width=154.82499284999997pt height=24.7161288pt/>
+
+# Gradient descent for Neural Networks
+
+The gradient is a numeric calculation allowing us to know how to adjust the parameters (weights, bias) of a network in such a way that its output deviation (cost function) is minimized:
+
+<img src="/tex/1ebaa02d11f35a12286c34747697f370.svg?invert_in_darkmode&sanitize=true" align=middle width=281.5793574pt height=29.190975000000005pt/>
+
+# Random Initialization
+
+When you change your neural network, it's important to initialize the weights randomly. Random initialization of the model is a common practice. The rational behind is that from wherever we start, if we are perseverant enough and through an iterative learning process, we can reach the pseudo-ideal model.
+
+We can initialize the weights randomly and the bias at zero.
+
+If we initialize both weights and bias to zeros, all activations functions (a_{i,j,...}) will be equal. All the neurons units would start off computing the same function and therefore all the hidden neurons completely identical. Again, using hidden layers would be useless.
