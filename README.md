@@ -6,15 +6,14 @@ Think about this function of housing prices as very simple neural network:
 <img src="images/nn.png" width="60%" height="60%">
 </p>
 
-The little circle is a single neuron of a neural network, that implements the function (ReLU) that is drawn on the left. All the neuron does is it inputs the size, computes this linear function, takes a max of zero, and then outputs the estimated price.
-
-A larger neural network is formated by taking many of the single neurons and stacking them together. As well, each of the little circles implements the Rectified Linear Unit function (or some other slightly non-linear function). By stacking together a few of the single neurons or simple predictors, we have now a a larger neural network.
+The little circle is a a representation of a single "**neuron**" of a neural network. The neuron takes an input, the size of the house, to try to explain the variance in an output, the price of the house. The neuron uses an algorithm to process the input into output, in this case the activation function in the graph called Rectified Linear Unit function (ReLU). A **Neural Network** is created by stacking neurons together. Each of the neurons stacked implements ReLU, or some other slightly non-linear function.
 
 <p align="center">
 <img src="images/nn2.png" width="60%" height="60%">
 </p>
 
-To feed the network, you need to give it just the input x and the output y for a number of examples in your training set and the neural network will figure it out by itself the hidden layer in the middle. The input layer and the hidden layer are density connected: every input feature is connected to every "hidden" feature.
+The Neural Network needs a large number of inputs and their output, in the example a large dataset of houses prices associated with their size. The "**hidden layers**" are made by the neurons itself.
+The first layer, the **input layer**, and the hidden layers are connected, as every input feature is connected to every "hidden" feature.
 
 <p align="center">
 <img src="images/nn3.png" width="60%" height="60%">
@@ -22,13 +21,14 @@ To feed the network, you need to give it just the input x and the output y for a
 
 # Supervised Learning with Neural Networks
 
-There are different types of neural network, for example Convolution Neural Network (CNN) used often for image application and Recurrent Neural Network (RNN) used for one-dimensional sequence data such as translating English to Chinses or a temporal component such as text transcript. As for the autonomous driving, it is a hybrid neural network architecture.
+There are different types of neural networks, for example Convolution Neural Network (CNN) used often for image application. Recurrent Neural Networks (RNN) are used for one-dimensional sequence data such as translating English to Chinese or a temporal component such as text transcript. Hybrid Neural Networks architecture can be used for autonomous driving model.
 
 <p align="center">
 <img src="images/supervised_types.png" width="60%" height="60%">
 </p>
 
-Structured data refers to things that has a defined meaning such as price, age whereas unstructured data refers to thing like pixel, raw audio, text.
+- Structured data: it has a defined meaning, such as price and size. 
+- Unstructured data: it does not a define meaning by itself, like a pixel, raw audio, text.
 
 # Binary Classification and Logistic Regression
 
@@ -115,7 +115,6 @@ c.shape # (3,3)
 d = np.random.randn(4, 3) # a.shape = (4, 3)
 e = np.random.randn(3, 2) # b.shape = (3, 2)
 f = d*e # Error: operands could not be broadcast together
-
 ```
 
 This allows to write quite a flexible code, but it also allows to start creating product matrices that create bugs difficult to track. Specify always the matrix shape and don't use rank 1 matrices: "np.random.randn(5,1)" instead of "np.random.randn(5)" for a five column vector, for example.
@@ -178,8 +177,8 @@ If you use a linear activation function, or alternatively if you don't have an a
 
 Where <img src="/tex/53ee452a5c1c62644cbbda5f322a11cc.svg?invert_in_darkmode&sanitize=true" align=middle width=51.822576299999994pt height=24.65753399999998pt/> is a nonlinear function.
 
-* ReLU Function: <img src="/tex/34723e8bb818e0f73e261ceafe24b692.svg?invert_in_darkmode&sanitize=true" align=middle width=142.03955865pt height=24.7161288pt/> and <img src="/tex/92270b0c287e23e140cb3b8308e4739d.svg?invert_in_darkmode&sanitize=true" align=middle width=154.82499284999997pt height=24.7161288pt/>
-* Leaky ReLU Function: <img src="/tex/804ca2aa9f8ea1c6b2cae0a66e106bd2.svg?invert_in_darkmode&sanitize=true" align=middle width=163.0442022pt height=24.7161288pt/>
+* ReLU Function: <img src="/tex/34723e8bb818e0f73e261ceafe24b692.svg?invert_in_darkmode&sanitize=true" align=middle width=142.03955865pt height=24.7161288pt/> and <img src="/tex/d879ba2ba361fe33298bf4435ff89222.svg?invert_in_darkmode&sanitize=true" align=middle width=162.13087604999998pt height=24.7161288pt/>
+* Leaky ReLU Function: <img src="/tex/20fc333f7572589f986a3031f5d25eea.svg?invert_in_darkmode&sanitize=true" align=middle width=170.35008539999998pt height=24.7161288pt/>
 and <img src="/tex/92270b0c287e23e140cb3b8308e4739d.svg?invert_in_darkmode&sanitize=true" align=middle width=154.82499284999997pt height=24.7161288pt/>
 
 # Gradient descent for Neural Networks
