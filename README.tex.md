@@ -191,7 +191,7 @@ and $g'(z) = 1 when z>=0$
 
 The gradient is a numeric calculation allowing us to know how to adjust the parameters (weights, bias) of a network in such a way that its output deviation (cost function) is minimized:
 
-$J(w^{[1]},b^{[1]},w^{[2]},b^{[2]}) = \fraq{1/m} * \sum(L(\haty, y))$
+$J(w^{[1]},b^{[1]},w^{[2]},b^{[2]}) = \fraq{1/m} * \sum(L(\hat{y}, y))$
 
 # Random Initialization
 
