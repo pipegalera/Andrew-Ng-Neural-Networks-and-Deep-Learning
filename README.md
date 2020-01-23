@@ -56,6 +56,7 @@ The parameters used in Logistic regression are:
 * The Sigmoid function: <img src="/tex/f469c5de7f8a3a028f42399365add185.svg?invert_in_darkmode&sanitize=true" align=middle width=93.59773169999998pt height=27.77565449999998pt/> where <img src="/tex/222750d021b4c146842ab8584e655d07.svg?invert_in_darkmode&sanitize=true" align=middle width=89.39266379999998pt height=27.6567522pt/>
 
 This points will be explained later.
+
 # Logistic Regression Loss and Cost Function
 
 The **Loss function** measures the discrepancy between the prediction (<img src="/tex/5a92eb88b1ce29767bb5287374cf8fbd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/>) and the desired output (<img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/>). In other words, the loss function **computes the error** for a single training example.

@@ -1,6 +1,6 @@
 # What is a Neural Network?
 
-Think about this function of housing prices as very simple neural network:
+Neural Networks are collection of connected units or nodes called "neurons", which loosely model the neurons in a biological brain. The combination of neurons "learn" to perform tasks by considering examples, without being programmed with task-specific rules. Think about this function of housing prices as very simple neural network:
 
 <p align="center">
 <img src="images/nn.png" width="60%" height="60%">
@@ -12,13 +12,14 @@ The little circle is a a representation of a single "**neuron**" of a neural net
 <img src="images/nn2.png" width="60%" height="60%">
 </p>
 
-The Neural Network needs a large number of inputs and their output, in the example a large dataset of houses prices associated with their size. The "**hidden layers**" are made by the neurons itself.
-The first layer, the **input layer**, and the hidden layers are connected, as every input feature is connected to every "hidden" feature.
+A Neural Network needs a large number of inputs and their output, a lot of examples to find the pattern that explains the output. In the example, a large dataset of houses prices associated with their size. The "**hidden layers**" are made by the neurons itself.
+The first layer, the **input layer**, and the hidden layers are connected: every input feature is connected to every "hidden" feature.
 
 <p align="center">
 <img src="images/nn3.png" width="60%" height="60%">
 </p>
 
+The Neural Network uses the size, the number of bedroom, zipcode, wealth and so into "hidden units" that explains the prize. This hidden units are made by the neurons without explicitly telling them (it's a "machine" learning a pattern). Therefore, some times you can find this models refered as "**black boxes**": we don't know how the algorithm is accomplishing what its accomplishing-
 # Supervised Learning with Neural Networks
 
 There are different types of neural networks, for example Convolution Neural Network (CNN) used often for image application. Recurrent Neural Networks (RNN) are used for one-dimensional sequence data such as translating English to Chinese or a temporal component such as text transcript. Hybrid Neural Networks architecture can be used for autonomous driving model.
@@ -27,16 +28,23 @@ There are different types of neural networks, for example Convolution Neural Net
 <img src="images/supervised_types.png" width="60%" height="60%">
 </p>
 
-- Structured data: it has a defined meaning, such as price and size. 
-- Unstructured data: it does not a define meaning by itself, like a pixel, raw audio, text.
+For now the only difference that we have to know is between structured and unstructured data:
+
+- **Structured data**: it has a defined meaning, such as price and size. 
+- **Unstructured data**: it does not have a define meaning by itself. Like a pixel, raw audio or text.
 
 # Binary Classification and Logistic Regression
 
-In a binary classification problem, the result is a discrete value output.
+In a **binary classification problem**, the result is a discrete value output: a 1 or a 0. For example, trying to explain a catastrophe survival rate: a person survived (1) or did not (0).
 
 The feature matrix shape is made "stacking" the number of features ($n_x$) in different columns, one for every observation ($m$): $X.shape = (n_x, m)$. The output shape is a 1 by $m$ dimensional matrix; $y.shape = (1,m)$
 
-Logistic regression is used for binary classification, when the output labels are either 0 or 1: $\hat{y} = P(y=1|x)$, where $0 \leq \hat{y} \leq 1$.
+As an example, take this feature matrix in which the features are Carb, Protein and Fat, the observations Apple, Beef, Eggs and Potatoes. The output shape can be one and only row of 0 or 1s for every food, depending if they are healthy (1) or not (0). 
+<p align="center">
+<img src="images/food.png" width="60%" height="60%">
+</p>
+
+**Logistic regression** is used for binary classification, when the output labels are either 0 or 1: $\hat{y} = P(y=1|x)$, where $0 \leq \hat{y} \leq 1$.
 
 The parameters used in Logistic regression are:
 
@@ -47,11 +55,13 @@ The parameters used in Logistic regression are:
 * The output: $\hat{y}= \sigma(w^{T}x + b)$
 * The Sigmoid function: $\sigma(z)=\frac{1}{1+e^{-z}}$ where $z=w^{T}x + b$
 
+This points will be explained later.
+
 # Logistic Regression Loss and Cost Function
 
-The **Loss function** measures the discrepancy between the prediction ($\haty$) and the desired output ($y$). In other words, the loss function computes the error for a single training example.
+The **Cost function** is the **average of the loss function** of the entire training set. We are going to find the parameters ($\hat{y}$) and the desired output ($y$). In other words, the loss function computes the error for a single training example.
 
-The **Cost function** is the average of the loss function of the entire training set. We are going to find the parameters $w$ and $b$ that minimize the overall cost function.
+The **Cost function** is the **average of the loss function** of the entire training set. We are going to find the parameters $w$ and $b$ that minimize the overall cost function.
 
 The loss function computes the error for a single training example; the cost function is the average of the loss functions of the entire training set.
 
@@ -77,7 +87,7 @@ where: $w$ and $b$ represents the weights and the threshold, $:=$ is the assignm
 
 Avoid explicit for-loops whenever possible. Using  the numpy version ()"$z = np.dot(w, x) + b$") of "$z = w^{T}X + b$" is about 300 times faster than an explicit for loop.
 
-When we use the numpy version, python automatically transform the constant (or 1x1 matrix) "b" and expand to a "1xm" matrix to sum the matrices: $b = [b_1, b_2, b_3...b_n]$. This is called "broadcasting", its also faster way to compute the code.
+Python automatically transform the constant (or 1x1 matrix) "b" and expand to a "1xm" matrix to sum the matrices: $b = [b_1, b_2, b_3...b_n]$. This is called "**broadcasting**", its also faster way to compute the code.
 
 - Example: Calculating the percentage of calories from carb/protein/fat for each food — without fooloop from the following table
 
@@ -94,10 +104,23 @@ A = np.array([[56, 0, 4.4,68],
               [1.8,135,99,0.9]
               ])
 print(A)
+
+ [ 56.    0.    4.4  68. ]
+ [  1.2 104.   52.    8. ]
+ [  1.8 135.   99.    0.9]
+ 
 cal = A.sum(axis=0) # axis=0 is to make python sum vertically, axis=1 would make the sum horizontally.
 print(cal)
+
+[ 59.  239.  155.4  76.9]
+
 percentage = 100*A/cal.reshape(1,4) #Taking the 3x4 matrix "A" and diving it by the 1x4 matrix "cal".
 print(percentage)
+
+ [94.91525424  0.          2.83140283 88.42652796]
+ [ 2.03389831 43.51464435 33.46203346 10.40312094]
+ [ 3.05084746 56.48535565 63.70656371  1.17035111]
+ 
 ```
 Resulting in a 3x4 matrix.
 
@@ -131,7 +154,10 @@ This allows to write quite a flexible code, but it also allows to start creating
 <img src="images/leyers.png" width="60%" height="60%">
 </p>
 
-What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has 2 steps of computation: it's own regression $z= w^{T}+b$ and an activation function $a = \sigma(z)$
+What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has *2 steps of computation**: 
+
+- A logistic regression $z= w^{T}+b$
+- An activation function $a = \sigma(z)$
 
 <p align="center">
 <img src="images/activation.png" width="60%" height="60%">
@@ -143,7 +169,7 @@ So for each neuron $i$ or node in the layer you have: $z_i^{[n]}= w_i^{[n]T}+b_i
 <img src="images/formula.png" width="70%" height="70%">
 </p>
 
-In this Neural Network example with 2 layers and 4 logistic regression, we can stack the vectors together of the entire layers to make a vectorized implementation:
+In this Neural Network example with 2 layers and 4 neurons, we can stack the vectors together of the entire layers to make a vectorized implementation:
 
 - $W^{[1]}$ as a vector (4x3) of $[W_1^{[1]}, W_2^{[1]},W_3^{[1]},W_4^{[1]}]$;
 - $b^{[1]}$ as a vector (4x1) of $[b_1^{[1]}, b_2^{[1]},b_3^{[1]},b_4^{[1]}]$;
@@ -152,19 +178,19 @@ In this Neural Network example with 2 layers and 4 logistic regression, we can s
 
 # Activation functions
 
-When you build your neural network, one of the choices you get to make is what activation function to use in the hidden layers.
+When you build your Neural Network, one of the choices you get to make is what activation function to use in the hidden layers.
 
-The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called hyperbolic tangent function (Tanh):
+The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called **hyperbolic tangent function (Tanh)*:
 
 <p align="center">
 <img src="images/tangent.png" width="70%" height="70%">
 </p>
 
-It goes between 1 and - 1. The tanh function is almost always strictly superior. The one exception is for the output layer because if y is either 0 or 1, then it makes sense for y hat to be a number, the one to output that's between 0 and 1 rather than between minus 1 and 1.
+It goes between 1 and - 1. The tanh function is almost always strictly superior. The **one exception** is for the output layer because if y is either 0 or 1, then it makes sense for y hat to be a number, the one to output that's between 0 and 1 rather than between minus 1 and 1.
 
 One of the downsides of both the sigmoid function and the tanh function is that if z is either very large or very small, then the gradient or the derivative or the slope of this function becomes very small.
 
-Another choice that is very popular in machine learning is what's called the rectify linear unit (ReLU). So the value function looks like:
+Another choice that is very popular in machine learning is what's called the **rectify linear unit (ReLU)**. So the value function looks like:
 
 <p align="center">
 <img src="images/relu.png" width="70%" height="70%">
@@ -172,7 +198,7 @@ Another choice that is very popular in machine learning is what's called the rec
 
 The derivative is 1 as z is positive. And the derivative or  slope is 0, when z is negative. Is an increasingly default choice of activation function.
 
-In practice, using the ReLU activation function, your neural network will often learn much faster than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
+In practice, using the ReLU activation function, your neural network will often **learn much faster** than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
 
 If you use a linear activation function, or alternatively if you don't have an activation function, then no matter how many layers your neural network has, all it's doing is just computing a linear activation function. A linear hidden layer is more or less useless because the composition of two linear functions is itself a linear function.
 
