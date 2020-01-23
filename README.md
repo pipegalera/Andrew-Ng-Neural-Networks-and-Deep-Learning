@@ -1,6 +1,6 @@
 # What is a Neural Network?
 
-Neural Networks are collection of connected units or nodes called "neurons", which loosely model the neurons in a biological brain. The combination of neurons "learn" to perform tasks by considering examples, without being programmed with task-specific rules. Think about this function of housing prices as very simple neural network:
+Think about this function of housing prices as very simple neural network:
 
 <p align="center">
 <img src="images/nn.png" width="60%" height="60%">
@@ -12,14 +12,13 @@ The little circle is a a representation of a single "**neuron**" of a neural net
 <img src="images/nn2.png" width="60%" height="60%">
 </p>
 
-A Neural Network needs a large number of inputs and their output, a lot of examples to find the pattern that explains the output. In the example, a large dataset of houses prices associated with their size. The "**hidden layers**" are made by the neurons itself.
-The first layer, the **input layer**, and the hidden layers are connected: every input feature is connected to every "hidden" feature.
+The Neural Network needs a large number of inputs and their output, in the example a large dataset of houses prices associated with their size. The "**hidden layers**" are made by the neurons itself.
+The first layer, the **input layer**, and the hidden layers are connected, as every input feature is connected to every "hidden" feature.
 
 <p align="center">
 <img src="images/nn3.png" width="60%" height="60%">
 </p>
 
-The Neural Network uses the size, the number of bedroom, zipcode, wealth and so into "hidden units" that explains the prize. This hidden units are made by the neurons without explicitly telling them (it's a "machine" learning a pattern). Therefore, some times you can find this models refered as "**black boxes**": we don't know how the algorithm is accomplishing what its accomplishing-
 # Supervised Learning with Neural Networks
 
 There are different types of neural networks, for example Convolution Neural Network (CNN) used often for image application. Recurrent Neural Networks (RNN) are used for one-dimensional sequence data such as translating English to Chinese or a temporal component such as text transcript. Hybrid Neural Networks architecture can be used for autonomous driving model.
@@ -28,23 +27,16 @@ There are different types of neural networks, for example Convolution Neural Net
 <img src="images/supervised_types.png" width="60%" height="60%">
 </p>
 
-For now the only difference that we have to know is between structured and unstructured data:
-
-- **Structured data**: it has a defined meaning, such as price and size. 
-- **Unstructured data**: it does not have a define meaning by itself. Like a pixel, raw audio or text.
+- Structured data: it has a defined meaning, such as price and size. 
+- Unstructured data: it does not a define meaning by itself, like a pixel, raw audio, text.
 
 # Binary Classification and Logistic Regression
 
-In a **binary classification problem**, the result is a discrete value output: a 1 or a 0. For example, trying to explain a catastrophe survival rate: a person survived (1) or did not (0).
+In a binary classification problem, the result is a discrete value output.
 
-The **feature matrix** shape is made "stacking" the number of features (<img src="/tex/322d8f61a96f4dd07a0c599482268dfe.svg?invert_in_darkmode&sanitize=true" align=middle width=17.32124954999999pt height=14.15524440000002pt/>), one for every observation (<img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/>): <img src="/tex/3ba00a479d4b9167a41bad118af23b8c.svg?invert_in_darkmode&sanitize=true" align=middle width=134.9372904pt height=24.65753399999998pt/>. The output shape is a 1 by <img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/> dimensional matrix; <img src="/tex/afebc7a1bbc7e178ce750acd5e17539a.svg?invert_in_darkmode&sanitize=true" align=middle width=119.66713934999999pt height=24.65753399999998pt/>
+The feature matrix shape is made "stacking" the number of features (<img src="/tex/322d8f61a96f4dd07a0c599482268dfe.svg?invert_in_darkmode&sanitize=true" align=middle width=17.32124954999999pt height=14.15524440000002pt/>) in different columns, one for every observation (<img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/>): <img src="/tex/3ba00a479d4b9167a41bad118af23b8c.svg?invert_in_darkmode&sanitize=true" align=middle width=134.9372904pt height=24.65753399999998pt/>. The output shape is a 1 by <img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/> dimensional matrix; <img src="/tex/afebc7a1bbc7e178ce750acd5e17539a.svg?invert_in_darkmode&sanitize=true" align=middle width=119.66713934999999pt height=24.65753399999998pt/>
 
-As an example, take this feature matrix in which the features are Carb, Protein and Fat, the observations Apple, Beef, Eggs and Potatoes. The output shape can be one and only row of 0 or 1s for every food, depending if they are healthy (1) or not (0). 
-<p align="center">
-<img src="images/food.png" width="60%" height="60%">
-</p>
-
-**Logistic regression** can be used for binary classification: <img src="/tex/8d1721d6e5ba5edb77d9504fcb1338c3.svg?invert_in_darkmode&sanitize=true" align=middle width=108.9362934pt height=24.65753399999998pt/>, where <img src="/tex/323ce571e0e93da4e5376548a6837dc7.svg?invert_in_darkmode&sanitize=true" align=middle width=68.92287929999999pt height=22.831056599999986pt/>.
+Logistic regression is used for binary classification, when the output labels are either 0 or 1: <img src="/tex/8d1721d6e5ba5edb77d9504fcb1338c3.svg?invert_in_darkmode&sanitize=true" align=middle width=108.9362934pt height=24.65753399999998pt/>, where <img src="/tex/323ce571e0e93da4e5376548a6837dc7.svg?invert_in_darkmode&sanitize=true" align=middle width=68.92287929999999pt height=22.831056599999986pt/>.
 
 The parameters used in Logistic regression are:
 
@@ -55,12 +47,11 @@ The parameters used in Logistic regression are:
 * The output: <img src="/tex/3725898a78dcc79fd49640d4845c1438.svg?invert_in_darkmode&sanitize=true" align=middle width=112.44255989999998pt height=27.6567522pt/>
 * The Sigmoid function: <img src="/tex/f469c5de7f8a3a028f42399365add185.svg?invert_in_darkmode&sanitize=true" align=middle width=93.59773169999998pt height=27.77565449999998pt/> where <img src="/tex/222750d021b4c146842ab8584e655d07.svg?invert_in_darkmode&sanitize=true" align=middle width=89.39266379999998pt height=27.6567522pt/>
 
-This points will be explained later.
 # Logistic Regression Loss and Cost Function
 
-The **Loss function** measures the discrepancy between the prediction (<img src="/tex/5a92eb88b1ce29767bb5287374cf8fbd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/>) and the desired output (<img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/>). In other words, the loss function **computes the error** for a single training example.
+The **Loss function** measures the discrepancy between the prediction (<img src="/tex/5a92eb88b1ce29767bb5287374cf8fbd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/>) and the desired output (<img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/>). In other words, the loss function computes the error for a single training example.
 
-The **Cost function** is the **average of the loss function** of the entire training set. We are going to find the parameters <img src="/tex/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode&sanitize=true" align=middle width=12.210846449999991pt height=14.15524440000002pt/> and <img src="/tex/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode&sanitize=true" align=middle width=7.054796099999991pt height=22.831056599999986pt/> that minimize the overall cost function.
+The **Cost function** is the average of the loss function of the entire training set. We are going to find the parameters <img src="/tex/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode&sanitize=true" align=middle width=12.210846449999991pt height=14.15524440000002pt/> and <img src="/tex/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode&sanitize=true" align=middle width=7.054796099999991pt height=22.831056599999986pt/> that minimize the overall cost function.
 
 The loss function computes the error for a single training example; the cost function is the average of the loss functions of the entire training set.
 
@@ -78,9 +69,9 @@ where: <img src="/tex/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode&sa
 
 # Vectorization and Broadcasting in Python
 
-Avoid explicit for-loops whenever possible. Using  the numpy version is about 300 times faster than an explicit for loop.: "<img src="/tex/4a9c4f346bb2d551cb597a6c2be1c52b.svg?invert_in_darkmode&sanitize=true" align=middle width=144.2921667pt height=24.65753399999998pt/>" of "<img src="/tex/9ab4a87930a94cc65f504dfe8d3b5b1d.svg?invert_in_darkmode&sanitize=true" align=middle width=94.90634175pt height=27.6567522pt/>" 
+Avoid explicit for-loops whenever possible. Using  the numpy version ()"<img src="/tex/4a9c4f346bb2d551cb597a6c2be1c52b.svg?invert_in_darkmode&sanitize=true" align=middle width=144.2921667pt height=24.65753399999998pt/>") of "<img src="/tex/9ab4a87930a94cc65f504dfe8d3b5b1d.svg?invert_in_darkmode&sanitize=true" align=middle width=94.90634175pt height=27.6567522pt/>" is about 300 times faster than an explicit for loop.
 
-Python automatically transform the constant (or 1x1 matrix) "b" and expand to a "1xm" matrix to sum the matrices: <img src="/tex/6210e5f30e37a74c6bcbd15fca43c3c2.svg?invert_in_darkmode&sanitize=true" align=middle width=125.70581759999999pt height=24.65753399999998pt/>. This is called "**broadcasting**", its also faster way to compute the code.
+When we use the numpy version, python automatically transform the constant (or 1x1 matrix) "b" and expand to a "1xm" matrix to sum the matrices: <img src="/tex/6210e5f30e37a74c6bcbd15fca43c3c2.svg?invert_in_darkmode&sanitize=true" align=middle width=125.70581759999999pt height=24.65753399999998pt/>. This is called "broadcasting", its also faster way to compute the code.
 
 - Example: Calculating the percentage of calories from carb/protein/fat for each food — without fooloop from the following table
 
@@ -97,23 +88,10 @@ A = np.array([[56, 0, 4.4,68],
               [1.8,135,99,0.9]
               ])
 print(A)
-
- [ 56.    0.    4.4  68. ]
- [  1.2 104.   52.    8. ]
- [  1.8 135.   99.    0.9]
-
 cal = A.sum(axis=0) # axis=0 is to make python sum vertically, axis=1 would make the sum horizontally.
 print(cal)
-
-[ 59.  239.  155.4  76.9]
-
 percentage = 100*A/cal.reshape(1,4) #Taking the 3x4 matrix "A" and diving it by the 1x4 matrix "cal".
-print(percentage) 
-
- [94.91525424  0.          2.83140283 88.42652796]
- [ 2.03389831 43.51464435 33.46203346 10.40312094]
- [ 3.05084746 56.48535565 63.70656371  1.17035111]
-
+print(percentage)
 ```
 Resulting in a 3x4 matrix.
 
@@ -147,10 +125,7 @@ This allows to write quite a flexible code, but it also allows to start creating
 <img src="images/leyers.png" width="60%" height="60%">
 </p>
 
-What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has *2 steps of computation**: 
-
-- A regression: <img src="/tex/284725ac5e6b6f357803a43ef12682ee.svg?invert_in_darkmode&sanitize=true" align=middle width=79.99767599999998pt height=27.6567522pt/>.
-- An activation function: <img src="/tex/05c003d60a6e5e2b03dc6e29ddbcf5a8.svg?invert_in_darkmode&sanitize=true" align=middle width=61.74271949999999pt height=24.65753399999998pt/>
+What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has 2 steps of computation: it's own regression <img src="/tex/284725ac5e6b6f357803a43ef12682ee.svg?invert_in_darkmode&sanitize=true" align=middle width=79.99767599999998pt height=27.6567522pt/> and an activation function <img src="/tex/05c003d60a6e5e2b03dc6e29ddbcf5a8.svg?invert_in_darkmode&sanitize=true" align=middle width=61.74271949999999pt height=24.65753399999998pt/>
 
 <p align="center">
 <img src="images/activation.png" width="60%" height="60%">
@@ -162,7 +137,7 @@ So for each neuron <img src="/tex/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in
 <img src="images/formula.png" width="70%" height="70%">
 </p>
 
-In this Neural Network example with 2 layers and 4 neurons, we can stack the vectors together of the entire layers to make a vectorized implementation:
+In this Neural Network example with 2 layers and 4 logistic regression, we can stack the vectors together of the entire layers to make a vectorized implementation:
 
 - <img src="/tex/e99a4e1d357aa81fae3ff5e34777a7d3.svg?invert_in_darkmode&sanitize=true" align=middle width=31.80377474999999pt height=29.190975000000005pt/> as a vector (4x3) of <img src="/tex/a7f37b9c641adf6695dd9f803fb4961e.svg?invert_in_darkmode&sanitize=true" align=middle width=161.55281339999996pt height=34.337843099999986pt/>;
 - <img src="/tex/39c7d8201e2cadb69c40aa59b2b65d48.svg?invert_in_darkmode&sanitize=true" align=middle width=21.05031389999999pt height=29.190975000000005pt/> as a vector (4x1) of <img src="/tex/ea0a6219d3589a549b215cdb2d5c9801.svg?invert_in_darkmode&sanitize=true" align=middle width=118.53896834999999pt height=34.337843099999986pt/>;
@@ -171,19 +146,19 @@ In this Neural Network example with 2 layers and 4 neurons, we can stack the vec
 
 # Activation functions
 
-When you build your Neural Network, one of the choices you get to make is what activation function to use in the hidden layers.
+When you build your neural network, one of the choices you get to make is what activation function to use in the hidden layers.
 
-The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called **hyperbolic tangent function (Tanh)*:
+The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called hyperbolic tangent function (Tanh):
 
 <p align="center">
 <img src="images/tangent.png" width="70%" height="70%">
 </p>
 
-It goes between 1 and - 1. The tanh function is almost always strictly superior. The **one exception** is for the output layer because if y is either 0 or 1, then it makes sense for y hat to be a number, the one to output that's between 0 and 1 rather than between minus 1 and 1.
+It goes between 1 and - 1. The tanh function is almost always strictly superior. The one exception is for the output layer because if y is either 0 or 1, then it makes sense for y hat to be a number, the one to output that's between 0 and 1 rather than between minus 1 and 1.
 
 One of the downsides of both the sigmoid function and the tanh function is that if z is either very large or very small, then the gradient or the derivative or the slope of this function becomes very small.
 
-Another choice that is very popular in machine learning is what's called the **rectify linear unit (ReLU)**. So the value function looks like:
+Another choice that is very popular in machine learning is what's called the rectify linear unit (ReLU). So the value function looks like:
 
 <p align="center">
 <img src="images/relu.png" width="70%" height="70%">
@@ -191,7 +166,7 @@ Another choice that is very popular in machine learning is what's called the **r
 
 The derivative is 1 as z is positive. And the derivative or  slope is 0, when z is negative. Is an increasingly default choice of activation function.
 
-In practice, using the ReLU activation function, your neural network will often **learn much faster** than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
+In practice, using the ReLU activation function, your neural network will often learn much faster than Tanh or Sigmoid activation function. The main reason is that there is less of these effects of the slope of the function going to 0, which slows down learning.
 
 If you use a linear activation function, or alternatively if you don't have an activation function, then no matter how many layers your neural network has, all it's doing is just computing a linear activation function. A linear hidden layer is more or less useless because the composition of two linear functions is itself a linear function.
 
@@ -210,7 +185,7 @@ and <img src="/tex/92270b0c287e23e140cb3b8308e4739d.svg?invert_in_darkmode&sanit
 
 The gradient is a numeric calculation allowing us to know how to adjust the parameters (weights, bias) of a network in such a way that its output deviation (cost function) is minimized:
 
-<img src="/tex/1ebaa02d11f35a12286c34747697f370.svg?invert_in_darkmode&sanitize=true" align=middle width=281.5793574pt height=29.190975000000005pt/>
+<img src="/tex/bb86f8bfea026cb873779f7945c9ab44.svg?invert_in_darkmode&sanitize=true" align=middle width=290.2285584pt height=29.190975000000005pt/>
 
 # Random Initialization
 
