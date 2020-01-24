@@ -30,7 +30,7 @@ There are different types of neural networks, for example Convolution Neural Net
 
 For now the only difference that we have to know is between structured and unstructured data:
 
-- **Structured data**: it has a defined meaning, such as price and size. 
+- **Structured data**: it has a defined meaning, such as price and size.
 - **Unstructured data**: it does not have a define meaning by itself. Like a pixel, raw audio or text.
 
 # Binary Classification and Logistic Regression
@@ -39,7 +39,7 @@ In a **binary classification problem**, the result is a discrete value output: a
 
 The feature matrix shape is made "stacking" the number of features ($n_x$) in different columns, one for every observation ($m$): $X.shape = (n_x, m)$. The output shape is a 1 by $m$ dimensional matrix; $y.shape = (1,m)$
 
-As an example, take this feature matrix in which the features are Carb, Protein and Fat, the observations Apple, Beef, Eggs and Potatoes. The output shape can be one and only row of 0 or 1s for every food, depending if they are healthy (1) or not (0). 
+As an example, take this feature matrix in which the features are Carb, Protein and Fat, the observations Apple, Beef, Eggs and Potatoes. The output shape can be one and only row of 0 or 1s for every food, depending if they are healthy (1) or not (0).
 <p align="center">
 <img src="images/food.png" width="60%" height="60%">
 </p>
@@ -108,7 +108,7 @@ print(A)
  [ 56.    0.    4.4  68. ]
  [  1.2 104.   52.    8. ]
  [  1.8 135.   99.    0.9]
- 
+
 cal = A.sum(axis=0) # axis=0 is to make python sum vertically, axis=1 would make the sum horizontally.
 print(cal)
 
@@ -120,7 +120,7 @@ print(percentage)
  [94.91525424  0.          2.83140283 88.42652796]
  [ 2.03389831 43.51464435 33.46203346 10.40312094]
  [ 3.05084746 56.48535565 63.70656371  1.17035111]
- 
+
 ```
 Resulting in a 3x4 matrix.
 
@@ -154,7 +154,7 @@ This allows to write quite a flexible code, but it also allows to start creating
 <img src="images/leyers.png" width="60%" height="60%">
 </p>
 
-What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has *2 steps of computation**: 
+What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has *2 steps of computation**:
 
 - A logistic regression $z= w^{T}+b$
 - An activation function $a = \sigma(z)$
@@ -226,3 +226,46 @@ When you change your neural network, it's important to initialize the weights ra
 We can initialize the weights randomly and the bias at zero.
 
 If we initialize both weights and bias to zeros, all activations functions (a_{i,j,...}) will be equal. All the neurons units would start off computing the same function and therefore all the hidden neurons completely identical. Again, using hidden layers would be useless.
+
+# Forward Propagation in Deep Networks
+
+A "**Deep Neural Network**" is just a Neural Network with many layers. The number of layers is up to you. It is another hyperparameter that we can modify to improve the accuracy of the model and it's speed.  
+
+In **Forward propagation**, the weight vectors and bias vectors of the next layer depends on the vectors of the previous one:
+
+$z^[l]= w^[l]a^[l-1]+b^[l]$
+$a^[l]= g(z^[l])$
+
+A 4 layers **example**:
+
+<p align="center">
+<img src="images/4 layers.png" width="70%" height="70%">
+</p>
+
+Input Layer:
+
+$z^[1]= w^[1]a^[0]+b^[1]$
+$a^[1]= g(z^[1])$
+
+ $z^[1]$ is the first logistic regressions parametrized by the weights, type activation function used and bias: $w^[1]a^[0]+b^[1]$. In the first layer, $a^[0]$ is the covariates X, since we don't have a previous activation function. It continues, using the optimized parameters of the last layers:
+
+First Hidden Layer:
+
+$z^[2]= w^[2]a^[1]+b^[2]$
+$a^[2]= g(z^[2])$
+
+Second Hidden Layer:
+
+$z^[3]= w^[3]a^[2]+b^[3]$
+$a^[3]= g(z^[3])$
+
+Output Layer:
+
+$z^[4]= w^[4]a^[3]+b^[4]$
+$a^[4]= g(z^[4])$
+
+Where $a^[4]$ is the outcome variable that you want to predict: $\hat{y}$
+
+# Getting the dimensions rights
+
+Taking the previous example with 4 layers
