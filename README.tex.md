@@ -233,8 +233,8 @@ A "**Deep Neural Network**" is just a Neural Network with many layers. The numbe
 
 In **Forward propagation**, the weight vectors and bias vectors of the next layer depends on the vectors of the previous one:
 
-$z^[l]= w^[l]a^[l-1]+b^[l]$
-$a^[l]= g(z^[l])$
+$z^{[l]}= w^{[l]}a^{[l-1]}+b^{[l]}$
+$a^{[l]}= g(z^{[l]})$
 
 A 4 layers **example**:
 
@@ -242,30 +242,61 @@ A 4 layers **example**:
 <img src="images/4 layers.png" width="70%" height="70%">
 </p>
 
-Input Layer:
+**Input Layer**:
 
-$z^[1]= w^[1]a^[0]+b^[1]$
-$a^[1]= g(z^[1])$
+$z^{[1]}= w^{[1]}a^{[0]}+b^{[1]}$
+$a^{[1]}= g(z^{[1]})$
 
- $z^[1]$ is the first logistic regressions parametrized by the weights, type activation function used and bias: $w^[1]a^[0]+b^[1]$. In the first layer, $a^[0]$ is the covariates X, since we don't have a previous activation function. It continues, using the optimized parameters of the last layers:
+ Where $z^{[1]}$ is the first logistic regressions parametrized by the weights, type activation function used and bias: $w^{[1]}a^{[0]}+b^{[1]}$. In the first layer, $a^{[0]}$ is the covariates X, since we don't have a previous activation function. It continues, using the optimized parameters of the last layers:
 
-First Hidden Layer:
+**First Hidden Layer**:
 
-$z^[2]= w^[2]a^[1]+b^[2]$
-$a^[2]= g(z^[2])$
+$z^{[2]}= w^{[2]}a^{[1]}+b^{[2]}$
+$a^{[2]}= g(z^{[2]})$
 
-Second Hidden Layer:
+**Second Hidden Layer**:
 
-$z^[3]= w^[3]a^[2]+b^[3]$
-$a^[3]= g(z^[3])$
+$z^{[3]}= w^{[3]}a^{[2]}+b^{[3]}$
+$a^{[3]}= g(z^{[3]})$
 
-Output Layer:
+**Output Layer**:
 
-$z^[4]= w^[4]a^[3]+b^[4]$
-$a^[4]= g(z^[4])$
+$z^{[4]}= w^{[4]}a^{[3]}+b^{[4]}$
+$a^{[4]}= g(z^{[4]})$
 
-Where $a^[4]$ is the outcome variable that you want to predict: $\hat{y}$
+Where $a^{[4]}$ is the outcome variable that you want to predict: $\hat{y}$
 
-# Getting the dimensions rights
+# Getting the dimensions of a Neural Network
 
-Taking the previous example with 4 layers
+We are going to take the previous example with 4 layers. First we compute the dimensions of the layers:
+
+$n^{[0]=3}$
+$n^{[1]}=4$
+$n^{[2]}=4$
+$n^{[3]}=1$
+
+And then we take the input layer and try to see the dimensions:
+
+$z^{[1]}= w^{[1]}a^{[0]}+b^{[1]}$.
+
+$(4,1) = w^{[1]} \times (3,1) + bias$
+
+We can guess the shape of both weights and bias:
+
+- By dimension property (The product of a $m \times n$ matrix and a $n \times k$ is a $m \times k$ matrix), $w^{[1]}$ should be a (3,4) matrix.
+
+More generally: $w^{[l]} = (n^{[l]},n^{[l-1]})$
+
+- Given that the output is a (4,1) matrix, the sum must be a (4,1) matrix.
+
+More generally: $b^{[l]} = (n^{[l]},1)$
+
+In total:
+
+$(4,1) = (4,3) \times (3,1) + (4,1)$
+
+Instead of going layer by layer, we can generalize: Given the layer on the position l: $z^{[l]}= w^{[l]}a^{[l-1]}+b^{[l]}$, the dimension of the layer is
+
+$(n^{[l]},m),(n^{[l]}, n^{[l-1]}) \times (n^{[l-1]},1)+(n^{[l]},m)$
+
+Where $m$ is the size of the training set.
