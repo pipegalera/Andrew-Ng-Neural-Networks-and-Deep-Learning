@@ -30,7 +30,7 @@ There are different types of neural networks, for example Convolution Neural Net
 
 For now the only difference that we have to know is between structured and unstructured data:
 
-- **Structured data**: it has a defined meaning, such as price and size. 
+- **Structured data**: it has a defined meaning, such as price and size.
 - **Unstructured data**: it does not have a define meaning by itself. Like a pixel, raw audio or text.
 
 # Binary Classification and Logistic Regression
@@ -39,7 +39,7 @@ In a **binary classification problem**, the result is a discrete value output: a
 
 The feature matrix shape is made "stacking" the number of features (<img src="/tex/322d8f61a96f4dd07a0c599482268dfe.svg?invert_in_darkmode&sanitize=true" align=middle width=17.32124954999999pt height=14.15524440000002pt/>) in different columns, one for every observation (<img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/>): <img src="/tex/3ba00a479d4b9167a41bad118af23b8c.svg?invert_in_darkmode&sanitize=true" align=middle width=134.9372904pt height=24.65753399999998pt/>. The output shape is a 1 by <img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/> dimensional matrix; <img src="/tex/afebc7a1bbc7e178ce750acd5e17539a.svg?invert_in_darkmode&sanitize=true" align=middle width=119.66713934999999pt height=24.65753399999998pt/>
 
-As an example, take this feature matrix in which the features are Carb, Protein and Fat, the observations Apple, Beef, Eggs and Potatoes. The output shape can be one and only row of 0 or 1s for every food, depending if they are healthy (1) or not (0). 
+As an example, take this feature matrix in which the features are Carb, Protein and Fat, the observations Apple, Beef, Eggs and Potatoes. The output shape can be one and only row of 0 or 1s for every food, depending if they are healthy (1) or not (0).
 <p align="center">
 <img src="images/food.png" width="60%" height="60%">
 </p>
@@ -102,7 +102,7 @@ print(A)
  [ 56.    0.    4.4  68. ]
  [  1.2 104.   52.    8. ]
  [  1.8 135.   99.    0.9]
- 
+
 cal = A.sum(axis=0) # axis=0 is to make python sum vertically, axis=1 would make the sum horizontally.
 print(cal)
 
@@ -114,7 +114,7 @@ print(percentage)
  [94.91525424  0.          2.83140283 88.42652796]
  [ 2.03389831 43.51464435 33.46203346 10.40312094]
  [ 3.05084746 56.48535565 63.70656371  1.17035111]
- 
+
 ```
 Resulting in a 3x4 matrix.
 
@@ -148,7 +148,7 @@ This allows to write quite a flexible code, but it also allows to start creating
 <img src="images/leyers.png" width="60%" height="60%">
 </p>
 
-What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has *2 steps of computation**: 
+What a Neural Network does is doing the logistic regression for each neuron. This logistic regression has *2 steps of computation**:
 
 - A logistic regression <img src="/tex/284725ac5e6b6f357803a43ef12682ee.svg?invert_in_darkmode&sanitize=true" align=middle width=79.99767599999998pt height=27.6567522pt/>
 - An activation function <img src="/tex/05c003d60a6e5e2b03dc6e29ddbcf5a8.svg?invert_in_darkmode&sanitize=true" align=middle width=61.74271949999999pt height=24.65753399999998pt/>
@@ -220,3 +220,46 @@ When you change your neural network, it's important to initialize the weights ra
 We can initialize the weights randomly and the bias at zero.
 
 If we initialize both weights and bias to zeros, all activations functions (a_{i,j,...}) will be equal. All the neurons units would start off computing the same function and therefore all the hidden neurons completely identical. Again, using hidden layers would be useless.
+
+# Forward Propagation in Deep Networks
+
+A "**Deep Neural Network**" is just a Neural Network with many layers. The number of layers is up to you. It is another hyperparameter that we can modify to improve the accuracy of the model and it's speed.  
+
+In **Forward propagation**, the weight vectors and bias vectors of the next layer depends on the vectors of the previous one:
+
+<img src="/tex/ab23dde50f318f37c13712db1ff31e9d.svg?invert_in_darkmode&sanitize=true" align=middle width=163.9935066pt height=29.190975000000005pt/>
+<img src="/tex/3ba4ebbb8823d14c4a46757bee7704f4.svg?invert_in_darkmode&sanitize=true" align=middle width=88.86612899999999pt height=29.190975000000005pt/>
+
+A 4 layers **example**:
+
+<p align="center">
+<img src="images/4 layers.png" width="70%" height="70%">
+</p>
+
+Input Layer:
+
+<img src="/tex/bc143f2c59ce92d5c95560a7b51afa31.svg?invert_in_darkmode&sanitize=true" align=middle width=147.64656555pt height=29.190975000000005pt/>
+<img src="/tex/10e261d879d268345fc828b04435b978.svg?invert_in_darkmode&sanitize=true" align=middle width=94.84785914999998pt height=29.190975000000005pt/>
+
+ <img src="/tex/919db7143042d75b170a162d5455f28c.svg?invert_in_darkmode&sanitize=true" align=middle width=25.696451549999992pt height=29.190975000000005pt/> is the first logistic regressions parametrized by the weights, type activation function used and bias: <img src="/tex/4c07ac7a884cf7d6562bd2acac1920cb.svg?invert_in_darkmode&sanitize=true" align=middle width=100.0324842pt height=29.190975000000005pt/>. In the first layer, <img src="/tex/07503945b8147ee0345c553977bb0f7e.svg?invert_in_darkmode&sanitize=true" align=middle width=26.017985399999993pt height=29.190975000000005pt/> is the covariates X, since we don't have a previous activation function. It continues, using the optimized parameters of the last layers:
+
+First Hidden Layer:
+
+<img src="/tex/9ce83f1015248b165e20f4e091ce6997.svg?invert_in_darkmode&sanitize=true" align=middle width=147.64656555pt height=29.190975000000005pt/>
+<img src="/tex/6cbd7cb062a1f7048de22ca388a0782f.svg?invert_in_darkmode&sanitize=true" align=middle width=94.84785914999998pt height=29.190975000000005pt/>
+
+Second Hidden Layer:
+
+<img src="/tex/308d52ddfda61f93cf0558ffe8e7a210.svg?invert_in_darkmode&sanitize=true" align=middle width=147.64656555pt height=29.190975000000005pt/>
+<img src="/tex/ecf070d0ae53571ad0babff4ba2c8ee9.svg?invert_in_darkmode&sanitize=true" align=middle width=94.84785914999998pt height=29.190975000000005pt/>
+
+Output Layer:
+
+<img src="/tex/b85f6fae45486d20e1190b7f567362ed.svg?invert_in_darkmode&sanitize=true" align=middle width=147.64656555pt height=29.190975000000005pt/>
+<img src="/tex/48feafc6e2d7123368fdf8696e602df3.svg?invert_in_darkmode&sanitize=true" align=middle width=94.84785914999998pt height=29.190975000000005pt/>
+
+Where <img src="/tex/194da525af651a8d46409f6919abc849.svg?invert_in_darkmode&sanitize=true" align=middle width=26.017985399999993pt height=29.190975000000005pt/> is the outcome variable that you want to predict: <img src="/tex/282f38ecf82d8d7b9d2813044262d5f3.svg?invert_in_darkmode&sanitize=true" align=middle width=9.347490899999991pt height=22.831056599999986pt/>
+
+# Getting the dimensions rights
+
+Taking the previous example with 4 layers
