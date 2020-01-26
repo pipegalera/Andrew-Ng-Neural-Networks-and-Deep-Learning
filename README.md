@@ -174,7 +174,7 @@ In this Neural Network example with 2 layers and 4 neurons, we can stack the vec
 
 When you build your Neural Network, one of the choices you get to make is what activation function to use in the hidden layers.
 
-The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called **hyperbolic tangent function (Tanh)*:
+The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called **hyperbolic tangent function (Tanh)**:
 
 <p align="center">
 <img src="images/tangent.png" width="70%" height="70%">
@@ -211,7 +211,7 @@ and <img src="/tex/92270b0c287e23e140cb3b8308e4739d.svg?invert_in_darkmode&sanit
 
 The gradient is a numeric calculation allowing us to know how to adjust the parameters (weights, bias) of a network in such a way that its output deviation (cost function) is minimized:
 
-<img src="/tex/bb86f8bfea026cb873779f7945c9ab44.svg?invert_in_darkmode&sanitize=true" align=middle width=290.2285584pt height=29.190975000000005pt/>
+<p align="center"><img src="/tex/a0c03f5cde66b05567dfd6b3f2cf6e52.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 
 # Random Initialization
 
@@ -227,8 +227,7 @@ A "**Deep Neural Network**" is just a Neural Network with many layers. The numbe
 
 In **Forward propagation**, the weight vectors and bias vectors of the next layer depends on the vectors of the previous one:
 
-<img src="/tex/ac6e5ac50993a229a10ffbae47c38b57.svg?invert_in_darkmode&sanitize=true" align=middle width=144.29047214999997pt height=29.190975000000005pt/>
-<img src="/tex/9e64eb8124329c666caa6593e6131d81.svg?invert_in_darkmode&sanitize=true" align=middle width=85.16748569999999pt height=29.190975000000005pt/>
+<p align="center"><img src="/tex/13ba5bc867d48a169c374a40f7b8282f.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 
 A 4 layers **example**:
 
@@ -238,25 +237,21 @@ A 4 layers **example**:
 
 **Input Layer**:
 
-<img src="/tex/851850192764169d53675f4878e08faa.svg?invert_in_darkmode&sanitize=true" align=middle width=136.77901874999998pt height=29.190975000000005pt/>
-<img src="/tex/d99edc502572f006fa6d2c1ca9fe3699.svg?invert_in_darkmode&sanitize=true" align=middle width=89.82503639999999pt height=29.190975000000005pt/>
+<p align="center"><img src="/tex/ba6c1e489825d03a68006f47ee56c0d7.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 
  Where <img src="/tex/fbda4728fed8e36ca2f81b78a53a1b4e.svg?invert_in_darkmode&sanitize=true" align=middle width=22.36313639999999pt height=29.190975000000005pt/> is the first logistic regressions parametrized by the weights, type activation function used and bias: <img src="/tex/27cc912444cb40cf10ec4bb660200054.svg?invert_in_darkmode&sanitize=true" align=middle width=91.67634795pt height=29.190975000000005pt/>. In the first layer, <img src="/tex/e2f780627ce7c87233a365ee2c0c4da0.svg?invert_in_darkmode&sanitize=true" align=middle width=22.684671899999987pt height=29.190975000000005pt/> is the covariates X, since we don't have a previous activation function. It continues, using the optimized parameters of the last layers:
 
 **First Hidden Layer**:
 
-<img src="/tex/7b85b9e2c22679ac19b3aa910fdaf13e.svg?invert_in_darkmode&sanitize=true" align=middle width=136.77901874999998pt height=29.190975000000005pt/>
-<img src="/tex/2c09f49fc18e147b9315bb8053f0e36c.svg?invert_in_darkmode&sanitize=true" align=middle width=89.82503639999999pt height=29.190975000000005pt/>
+<p align="center"><img src="/tex/ba5deea43f9b6a017421db252578da75.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 
 **Second Hidden Layer**:
 
-<img src="/tex/c168956b9ca92eeee7de03dba591443f.svg?invert_in_darkmode&sanitize=true" align=middle width=136.77901874999998pt height=29.190975000000005pt/>
-<img src="/tex/f59e39f6a654f5c83452539bda4e3999.svg?invert_in_darkmode&sanitize=true" align=middle width=89.82503639999999pt height=29.190975000000005pt/>
+<p align="center"><img src="/tex/673dfcf68331f8ddd7c5e5aacbf53d71.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 
 **Output Layer**:
 
-<img src="/tex/d72f34b8d0db8b14501f9f0a4b51f624.svg?invert_in_darkmode&sanitize=true" align=middle width=136.77901874999998pt height=29.190975000000005pt/>
-<img src="/tex/575a4c04e63f3b160b8c2e665849248a.svg?invert_in_darkmode&sanitize=true" align=middle width=89.82503639999999pt height=29.190975000000005pt/>
+<p align="center"><img src="/tex/4cb7e3035fe12a92470e6eaef8bf34e2.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 
 Where <img src="/tex/b284a1da5d49ee3489335ff5eed8ac05.svg?invert_in_darkmode&sanitize=true" align=middle width=22.684671899999987pt height=29.190975000000005pt/> is the outcome variable that you want to predict: <img src="/tex/282f38ecf82d8d7b9d2813044262d5f3.svg?invert_in_darkmode&sanitize=true" align=middle width=9.347490899999991pt height=22.831056599999986pt/>
 
@@ -264,17 +259,10 @@ Where <img src="/tex/b284a1da5d49ee3489335ff5eed8ac05.svg?invert_in_darkmode&san
 
 We are going to take the previous example with 4 layers. First we compute the dimensions of the layers:
 
-<img src="/tex/a48864dc353aef04d4931e9e274b58cc.svg?invert_in_darkmode&sanitize=true" align=middle width=40.50631364999999pt height=29.190975000000005pt/>
-<img src="/tex/1c06f81663c06fc3fed487451c98d906.svg?invert_in_darkmode&sanitize=true" align=middle width=54.82113779999999pt height=29.190975000000005pt/>
-<img src="/tex/a45c0f3cdcb2d6a342888aa9cdfe99b2.svg?invert_in_darkmode&sanitize=true" align=middle width=54.82113779999999pt height=29.190975000000005pt/>
-<img src="/tex/635cd0af5ae90b409ed3acfdd2aea5e9.svg?invert_in_darkmode&sanitize=true" align=middle width=54.82113779999999pt height=29.190975000000005pt/>
-
+<p align="center"><img src="/tex/89ddaf1bc11e9976cf973127577de82e.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 And then we take the input layer and try to see the dimensions:
 
-<img src="/tex/851850192764169d53675f4878e08faa.svg?invert_in_darkmode&sanitize=true" align=middle width=136.77901874999998pt height=29.190975000000005pt/>.
-
-<img src="/tex/5c0c6a4e6256ee834aa33c370a29fea3.svg?invert_in_darkmode&sanitize=true" align=middle width=191.30040764999998pt height=29.190975000000005pt/>
-
+<p align="center"><img src="/tex/f3b50477013577b4e473cae1615cdb53.svg?invert_in_darkmode&sanitize=true" align=middle width=191.30040764999998pt height=18.7050765pt/></p>
 We can guess the shape of both weights and bias:
 
 - By dimension property (The product of a <img src="/tex/205995f88b807b2f5268f7ef4053f049.svg?invert_in_darkmode&sanitize=true" align=middle width=44.39116769999999pt height=19.1781018pt/> matrix and a <img src="/tex/c0e991f2266d76861db938440931060c.svg?invert_in_darkmode&sanitize=true" align=middle width=39.03343619999999pt height=22.831056599999986pt/> is a <img src="/tex/43c68c89802537abdb20eb4c07066c85.svg?invert_in_darkmode&sanitize=true" align=middle width=43.59966104999999pt height=22.831056599999986pt/> matrix), <img src="/tex/dc95d11a3a1a8fda1cbb4b6b19ae2374.svg?invert_in_darkmode&sanitize=true" align=middle width=26.206364249999986pt height=29.190975000000005pt/> should be a (3,4) matrix.
@@ -287,10 +275,17 @@ More generally: <img src="/tex/79eb1d001dc53a5154b2ed8a3524a22e.svg?invert_in_da
 
 In total:
 
-<img src="/tex/31e5211b022f3ec5c951115fb7eac19f.svg?invert_in_darkmode&sanitize=true" align=middle width=208.21895489999997pt height=24.65753399999998pt/>
-
+<p align="center"><img src="/tex/a29439a949572340032b1a2e16184d82.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 Instead of going layer by layer, we can generalize: Given the layer on the position l: <img src="/tex/ac6e5ac50993a229a10ffbae47c38b57.svg?invert_in_darkmode&sanitize=true" align=middle width=144.29047214999997pt height=29.190975000000005pt/>, the dimension of the layer is
 
-<img src="/tex/6f509150a056a137d4ec0a4049ec1c2e.svg?invert_in_darkmode&sanitize=true" align=middle width=310.36963319999995pt height=29.190975000000005pt/>
+<p align="center"><img src="/tex/a7ac5405076246865c493996ffa33630.svg?invert_in_darkmode&sanitize=true" align=middle width=62.4042474pt height=14.611878599999999pt/></p>
 
 Where <img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/> is the size of the training set.
+
+# Circuit Theory and Deep Learning
+
+There are functions you can compute with a "small" L-layer deep neural network that with shallower networks require exponentially more hidden units to compute.
+
+# Forward and Backward Propagation
+
+# Parameters vs Hyperparameters
