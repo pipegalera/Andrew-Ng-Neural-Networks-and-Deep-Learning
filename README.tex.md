@@ -180,7 +180,7 @@ In this Neural Network example with 2 layers and 4 neurons, we can stack the vec
 
 When you build your Neural Network, one of the choices you get to make is what activation function to use in the hidden layers.
 
-The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called **hyperbolic tangent function (Tanh)*:
+The sigmoid function goes within zero and one. An activation function that almost always works better than the sigmoid function is the tangent function or also called **hyperbolic tangent function (Tanh)**:
 
 <p align="center">
 <img src="images/tangent.png" width="70%" height="70%">
@@ -217,7 +217,9 @@ and $g'(z) = 1 when z>=0$
 
 The gradient is a numeric calculation allowing us to know how to adjust the parameters (weights, bias) of a network in such a way that its output deviation (cost function) is minimized:
 
+\begin{align*}
 $J(w^{[1]},b^{[1]},w^{[2]},b^{[2]}) = \fraq{1/m} * \sum(L(\hat{y}, y))$
+\end{align*}
 
 # Random Initialization
 
@@ -233,8 +235,10 @@ A "**Deep Neural Network**" is just a Neural Network with many layers. The numbe
 
 In **Forward propagation**, the weight vectors and bias vectors of the next layer depends on the vectors of the previous one:
 
+\begin{align*}
 $z^{[l]}= w^{[l]}a^{[l-1]}+b^{[l]}$
 $a^{[l]}= g(z^{[l]})$
+\end{align*}
 
 A 4 layers **example**:
 
@@ -244,25 +248,33 @@ A 4 layers **example**:
 
 **Input Layer**:
 
+\begin{align*}
 $z^{[1]}= w^{[1]}a^{[0]}+b^{[1]}$
 $a^{[1]}= g(z^{[1]})$
+\end{align*}
 
  Where $z^{[1]}$ is the first logistic regressions parametrized by the weights, type activation function used and bias: $w^{[1]}a^{[0]}+b^{[1]}$. In the first layer, $a^{[0]}$ is the covariates X, since we don't have a previous activation function. It continues, using the optimized parameters of the last layers:
 
 **First Hidden Layer**:
 
+\begin{align*}
 $z^{[2]}= w^{[2]}a^{[1]}+b^{[2]}$
 $a^{[2]}= g(z^{[2]})$
+\end{align*}
 
 **Second Hidden Layer**:
 
+\begin{align*}
 $z^{[3]}= w^{[3]}a^{[2]}+b^{[3]}$
 $a^{[3]}= g(z^{[3]})$
+\end{align*}
 
 **Output Layer**:
 
+\begin{align*}
 $z^{[4]}= w^{[4]}a^{[3]}+b^{[4]}$
 $a^{[4]}= g(z^{[4]})$
+\end{align*}
 
 Where $a^{[4]}$ is the outcome variable that you want to predict: $\hat{y}$
 
@@ -270,17 +282,19 @@ Where $a^{[4]}$ is the outcome variable that you want to predict: $\hat{y}$
 
 We are going to take the previous example with 4 layers. First we compute the dimensions of the layers:
 
+\begin{align*}
 $n^{[0]=3}$
 $n^{[1]}=4$
 $n^{[2]}=4$
 $n^{[3]}=1$
-
+\end{align*}
 And then we take the input layer and try to see the dimensions:
 
+\begin{align*}
 $z^{[1]}= w^{[1]}a^{[0]}+b^{[1]}$.
 
 $(4,1) = w^{[1]} \times (3,1) + bias$
-
+\end{align*}
 We can guess the shape of both weights and bias:
 
 - By dimension property (The product of a $m \times n$ matrix and a $n \times k$ is a $m \times k$ matrix), $w^{[1]}$ should be a (3,4) matrix.
@@ -293,10 +307,21 @@ More generally: $b^{[l]} = (n^{[l]},1)$
 
 In total:
 
+\begin{align*}
 $(4,1) = (4,3) \times (3,1) + (4,1)$
-
+\end{align*}
 Instead of going layer by layer, we can generalize: Given the layer on the position l: $z^{[l]}= w^{[l]}a^{[l-1]}+b^{[l]}$, the dimension of the layer is
 
-$(n^{[l]},m),(n^{[l]}, n^{[l-1]}) \times (n^{[l-1]},1)+(n^{[l]},m)$
+\begin{align*}
+$(n^{[l]},m)=(n^{[l]}, n^{[l-1]}) \times (n^{[l-1]},1)+(n^{[l]},m)$
+\end{align*}
 
 Where $m$ is the size of the training set.
+
+# Circuit Theory and Deep Learning
+
+There are functions you can compute with a "small" L-layer deep neural network that with shallower networks require exponentially more hidden units to compute.
+
+# Forward and Backward Propagation
+
+# Parameters vs Hyperparameters
