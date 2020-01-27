@@ -324,4 +324,10 @@ There are functions you can compute with a "small" L-layer deep neural network t
 
 # Forward and Backward Propagation
 
+
+
 # Parameters vs Hyperparameters
+
+**Parameters**: These are the parameters in the model that must be determined using the training data set. These are the fitted parameters: $W^{n}, b^{n}$
+
+**Hyperparameters**: These are adjustable parameters that must be tuned in order to obtain a model with optimal performance: learning rate ($\alpha$), number of iterations, number of hidden layers ($L$), number of units in each hidden layer ($n^{n}$), the choice of the activation function (ReLU,Sigmoid...)
